@@ -2,7 +2,7 @@ namespace egg_catcher_game
 {
     public partial class gameBoard : Form
     {
-        // score
+        // score, initilly = zero
         int score = 0;
 
         // eggs left
@@ -15,11 +15,11 @@ namespace egg_catcher_game
         bool isHit = false;
 
         // directions of three egg baskets
-        bool basket1LeftToRight = true;
-        bool basket2LeftToRight = true;
-        bool basket3LeftToRight = true;
+        bool basket1LeftToRight;
+        bool basket2LeftToRight;
+        bool basket3LeftToRight;
 
-        // random speeds of the egg baskets
+        // speeds of the egg baskets
         int basket1_speed;
         int basket2_speed;
         int basket3_speed;
@@ -35,9 +35,10 @@ namespace egg_catcher_game
             InitializeComponent();
         }
 
+        // what happens when the form loads / the default state of the game
         private void Form1_Load(object sender, EventArgs e)
         {
-            // randomize the x coordinate of the egg baskets.
+            // randomizing the x coordinate of all three egg baskets.
             eggBasket1.Location = new Point(rand.Next(0, this.Width), eggBasket1.Location.Y);
             eggBasket2.Location = new Point(rand.Next(0, this.Width), eggBasket2.Location.Y);
             eggBasket3.Location = new Point(rand.Next(0, this.Width), eggBasket3.Location.Y);
@@ -47,9 +48,18 @@ namespace egg_catcher_game
             basket2_speed = rand.Next(1, 4);
             basket3_speed = rand.Next(1, 4);
 
+            // randomizing directions
+            basket1LeftToRight = rand.Next(0,2) == 1 ? true : false;
+            basket2LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+            basket3LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+
             // setting up labels
             lblEggsLeft.Text = eggsLeft.ToString();
             lblScore.Text = score.ToString();
+
+            // cloud - z index
+            cloud.SendToBack();
+            cloud2.SendToBack();
         }
 
         private void gameBoard_KeyDown(object sender, KeyEventArgs e)
@@ -66,8 +76,10 @@ namespace egg_catcher_game
             eggBasket3.Image = Properties.Resources.egg_basket;
 
             // moving the egg
+            // did the user clicked the UP ARROW KEY?
             if (e.KeyCode == Keys.Up)
             {
+                // move egg to the top by 130 pixels.
                 egg.Top -= 130;
 
                 // either egg is in a basket,
@@ -130,22 +142,24 @@ namespace egg_catcher_game
                     eggsLeft--;
                     lblEggsLeft.Text = eggsLeft.ToString();
 
-                    // game reset
+                    // going back to default state.
+                    // set egg basket images to be empty.
                     eggBasket1.Image = Properties.Resources.egg_basket;
                     eggBasket2.Image = Properties.Resources.egg_basket;
                     eggBasket3.Image = Properties.Resources.egg_basket;
 
+                    // show all the egg baskets.
                     eggBasket1.Visible = true;
                     eggBasket2.Visible = true;
                     eggBasket3.Visible = true;
 
                 }
 
-                // screen change
+                // when the egg hits the last egg basket on the screen, game appearcance should be changed.
                 if (egg.Location.Y <= 55 && isHit)
                 {
                     // the basket with the egg sould be visble
-                    // other baskets should dissappear
+                    // other baskets should not be visible.
                     eggBasket1.Visible = eggInBasket1 ? true : false;
                     eggBasket2.Visible = eggInBasket2 ? true : false;
                     eggBasket3.Visible = eggInBasket3 ? true : false;
@@ -153,10 +167,14 @@ namespace egg_catcher_game
                     // location of the visible egg basket should slowly bring down
                     timer_eggBasketMove.Start();
 
+                    // clouds behaviour
+                    cloud.Location = new Point(cloud.Location.X, 239);
+                    cloud2.Location = new Point(cloud.Location.X, 103);
 
                 }
 
-                if(score == 20)
+                // checking if it is a win
+                if (score == 20)
                 {
                     // all timers stop
                     timer_basket1.Dispose();
@@ -164,11 +182,12 @@ namespace egg_catcher_game
                     timer_basket3.Dispose();
 
                     // win picturebox visible
-                    cover.Image = Properties.Resources.win;
+                    cover.Image = Properties.Resources.win2;
                     cover.Visible = true;
                 }
 
-                if(eggsLeft == 0)
+                // checking if it is a lose
+                if (eggsLeft == 0)
                 {
                     // all timers stop
                     timer_basket1.Dispose();
@@ -177,7 +196,7 @@ namespace egg_catcher_game
 
                     // lose picturebox visible
                     cover.Visible = true;
-                    cover.Image = Properties.Resources.lose;
+                    cover.Image = Properties.Resources.game_over;
                 }
             }
         }
@@ -273,6 +292,10 @@ namespace egg_catcher_game
                     basket2_speed = rand.Next(1, 4);
                     basket3_speed = rand.Next(1, 4);
 
+                    basket1LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+                    basket2LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+                    basket3LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+
                     eggBasket2.Visible = true;
                     eggBasket3.Visible = true;
 
@@ -292,6 +315,10 @@ namespace egg_catcher_game
                     basket1_speed = rand.Next(1, 4);
                     basket3_speed = rand.Next(1, 4);
 
+                    basket1LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+                    basket2LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+                    basket3LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+
                     eggBasket1.Visible = true;
                     eggBasket3.Visible = true;
 
@@ -310,6 +337,10 @@ namespace egg_catcher_game
 
                     basket1_speed = rand.Next(1, 4);
                     basket2_speed = rand.Next(1, 4);
+
+                    basket1LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+                    basket2LeftToRight = rand.Next(0, 2) == 1 ? true : false;
+                    basket3LeftToRight = rand.Next(0, 2) == 1 ? true : false;
 
                     eggBasket1.Visible = true;
                     eggBasket2.Visible = true;

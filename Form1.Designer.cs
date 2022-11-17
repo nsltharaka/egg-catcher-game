@@ -41,15 +41,20 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.lblEggsLeft = new System.Windows.Forms.Label();
             this.cover = new System.Windows.Forms.PictureBox();
+            this.cloud = new System.Windows.Forms.PictureBox();
+            this.cloud2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.eggBasket1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eggBasket2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eggBasket3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.egg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cover)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud2)).BeginInit();
             this.SuspendLayout();
             // 
             // eggBasket1
             // 
+            this.eggBasket1.BackColor = System.Drawing.Color.Transparent;
             this.eggBasket1.Image = global::egg_catcher_game.Properties.Resources.egg_basket;
             this.eggBasket1.Location = new System.Drawing.Point(0, 315);
             this.eggBasket1.Margin = new System.Windows.Forms.Padding(0);
@@ -61,6 +66,7 @@
             // 
             // eggBasket2
             // 
+            this.eggBasket2.BackColor = System.Drawing.Color.Transparent;
             this.eggBasket2.Image = global::egg_catcher_game.Properties.Resources.egg_basket;
             this.eggBasket2.Location = new System.Drawing.Point(0, 185);
             this.eggBasket2.Margin = new System.Windows.Forms.Padding(0);
@@ -72,6 +78,7 @@
             // 
             // eggBasket3
             // 
+            this.eggBasket3.BackColor = System.Drawing.Color.Transparent;
             this.eggBasket3.Image = global::egg_catcher_game.Properties.Resources.egg_basket;
             this.eggBasket3.Location = new System.Drawing.Point(0, 55);
             this.eggBasket3.Margin = new System.Windows.Forms.Padding(0);
@@ -123,6 +130,7 @@
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblScore.BackColor = System.Drawing.Color.Transparent;
             this.lblScore.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblScore.ForeColor = System.Drawing.Color.Green;
             this.lblScore.Location = new System.Drawing.Point(309, 9);
@@ -134,6 +142,7 @@
             // lblEggsLeft
             // 
             this.lblEggsLeft.AutoSize = true;
+            this.lblEggsLeft.BackColor = System.Drawing.Color.Transparent;
             this.lblEggsLeft.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblEggsLeft.ForeColor = System.Drawing.Color.Red;
             this.lblEggsLeft.Location = new System.Drawing.Point(247, 9);
@@ -144,8 +153,9 @@
             // 
             // cover
             // 
-            this.cover.Image = global::egg_catcher_game.Properties.Resources.win;
-            this.cover.Location = new System.Drawing.Point(0, 0);
+            this.cover.BackColor = System.Drawing.Color.Transparent;
+            this.cover.Image = global::egg_catcher_game.Properties.Resources.win2;
+            this.cover.Location = new System.Drawing.Point(324, 445);
             this.cover.Name = "cover";
             this.cover.Size = new System.Drawing.Size(358, 481);
             this.cover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -153,11 +163,36 @@
             this.cover.TabStop = false;
             this.cover.Visible = false;
             // 
+            // cloud
+            // 
+            this.cloud.BackColor = System.Drawing.Color.Transparent;
+            this.cloud.Image = global::egg_catcher_game.Properties.Resources.cloud1;
+            this.cloud.Location = new System.Drawing.Point(218, 107);
+            this.cloud.Name = "cloud";
+            this.cloud.Size = new System.Drawing.Size(273, 55);
+            this.cloud.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cloud.TabIndex = 7;
+            this.cloud.TabStop = false;
+            // 
+            // cloud2
+            // 
+            this.cloud2.BackColor = System.Drawing.Color.Transparent;
+            this.cloud2.Image = global::egg_catcher_game.Properties.Resources.cloud1;
+            this.cloud2.Location = new System.Drawing.Point(-134, 236);
+            this.cloud2.Name = "cloud2";
+            this.cloud2.Size = new System.Drawing.Size(273, 55);
+            this.cloud2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cloud2.TabIndex = 8;
+            this.cloud2.TabStop = false;
+            // 
             // gameBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(359, 481);
+            this.Controls.Add(this.cloud2);
+            this.Controls.Add(this.cloud);
             this.Controls.Add(this.cover);
             this.Controls.Add(this.lblEggsLeft);
             this.Controls.Add(this.lblScore);
@@ -176,6 +211,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.eggBasket3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.egg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cover)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cloud2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +232,7 @@
         private Label lblScore;
         private Label lblEggsLeft;
         private PictureBox cover;
+        private PictureBox cloud;
+        private PictureBox cloud2;
     }
 }
