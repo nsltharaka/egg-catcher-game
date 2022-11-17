@@ -54,8 +54,8 @@ namespace egg_catcher_game
             basket3LeftToRight = rand.Next(0, 2) == 1 ? true : false;
 
             // setting up labels
-            lblEggsLeft.Text = eggsLeft.ToString();
-            lblScore.Text = score.ToString();
+            lblScore.Text = "SCORE : " + string.Format("{0:000}", score);
+            lblEggsLeft.Text = "EGGS LEFT : " + string.Format("{0:000}", eggsLeft);
 
             // cloud - z index
             cloud.SendToBack();
@@ -92,7 +92,7 @@ namespace egg_catcher_game
 
                     // score update
                     score++;
-                    lblScore.Text = score.ToString();
+                    lblScore.Text = "SCORE : " + string.Format("{0:000}", score);
 
                     // other resets
                     eggBasket2.Image = Properties.Resources.egg_basket;
@@ -107,7 +107,7 @@ namespace egg_catcher_game
 
                     // score update
                     score++;
-                    lblScore.Text = score.ToString();
+                    lblScore.Text = "SCORE : " + string.Format("{0:000}", score);
 
                     // other resets
                     eggBasket1.Image = Properties.Resources.egg_basket;
@@ -123,7 +123,7 @@ namespace egg_catcher_game
 
                     // score update
                     score++;
-                    lblScore.Text = score.ToString();
+                    lblScore.Text = "SCORE : " + string.Format("{0:000}", score);
 
                     // other resets
                     eggBasket1.Image = Properties.Resources.egg_basket;
@@ -140,7 +140,7 @@ namespace egg_catcher_game
 
                     // eggs count update
                     eggsLeft--;
-                    lblEggsLeft.Text = eggsLeft.ToString();
+                    lblEggsLeft.Text = "EGGS LEFT : " + string.Format("{0:000}", eggsLeft);
 
                     // going back to default state.
                     // set egg basket images to be empty.
@@ -168,8 +168,8 @@ namespace egg_catcher_game
                     timer_eggBasketMove.Start();
 
                     // clouds behaviour
-                    cloud.Location = new Point(cloud.Location.X, 239);
-                    cloud2.Location = new Point(cloud.Location.X, 103);
+                    cloud.Location = new Point(rand.Next(-140, 250), cloud.Location.Y == 239 ? 103 : 239);
+                    cloud2.Location = new Point(rand.Next(-140, 250), cloud2.Location.Y == 103 ? 239: 103);
 
                 }
 
@@ -184,6 +184,7 @@ namespace egg_catcher_game
                     // win picturebox visible
                     cover.Image = Properties.Resources.win2;
                     cover.Visible = true;
+                    cover.BringToFront();
                 }
 
                 // checking if it is a lose
@@ -197,6 +198,8 @@ namespace egg_catcher_game
                     // lose picturebox visible
                     cover.Visible = true;
                     cover.Image = Properties.Resources.game_over;
+                    cover.BringToFront();
+
                 }
             }
         }

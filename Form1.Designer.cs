@@ -129,33 +129,31 @@
             // 
             // lblScore
             // 
-            this.lblScore.AutoSize = true;
             this.lblScore.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblScore.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblScore.ForeColor = System.Drawing.Color.Green;
-            this.lblScore.Location = new System.Drawing.Point(309, 9);
+            this.lblScore.Location = new System.Drawing.Point(238, 9);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(38, 26);
+            this.lblScore.Size = new System.Drawing.Size(109, 21);
             this.lblScore.TabIndex = 4;
-            this.lblScore.Text = "00";
+            this.lblScore.Text = "SCORE : 00";
             // 
             // lblEggsLeft
             // 
-            this.lblEggsLeft.AutoSize = true;
             this.lblEggsLeft.BackColor = System.Drawing.Color.Transparent;
-            this.lblEggsLeft.Font = new System.Drawing.Font("Franklin Gothic Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblEggsLeft.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblEggsLeft.ForeColor = System.Drawing.Color.Red;
-            this.lblEggsLeft.Location = new System.Drawing.Point(247, 9);
+            this.lblEggsLeft.Location = new System.Drawing.Point(10, 9);
             this.lblEggsLeft.Name = "lblEggsLeft";
-            this.lblEggsLeft.Size = new System.Drawing.Size(38, 26);
+            this.lblEggsLeft.Size = new System.Drawing.Size(145, 21);
             this.lblEggsLeft.TabIndex = 5;
-            this.lblEggsLeft.Text = "00";
+            this.lblEggsLeft.Text = "EGGS LEFT : 00";
             // 
             // cover
             // 
             this.cover.BackColor = System.Drawing.Color.Transparent;
             this.cover.Image = global::egg_catcher_game.Properties.Resources.win2;
-            this.cover.Location = new System.Drawing.Point(324, 445);
+            this.cover.Location = new System.Drawing.Point(0, 0);
             this.cover.Name = "cover";
             this.cover.Size = new System.Drawing.Size(358, 481);
             this.cover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -214,7 +212,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cloud)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cloud2)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
